@@ -1,0 +1,1 @@
+{"small_blind": 10, "big_blind": 20, "my_hand": ["Td", "9s"], "my_index": 1, "board_cards": ["3c", "8d", "7h"], "player_infos": [{"spent": 92, "stack": 8, "active": true}, {"spent": 92, "stack": 8, "active": true}], "current_round": 1, "legal_actions": [1, 100]}

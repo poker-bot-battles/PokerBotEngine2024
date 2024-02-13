@@ -19,6 +19,7 @@ class Bot:
                'current_round': obs.current_round,
                'legal_actions': obs.legal_actions,
     }
+    print("obsdict", json.dumps(obsdict))
     res = subprocess.run(["java", "-cp","./javabot:javabot/libs/*", "bot", json.dumps(obsdict)], capture_output=True, text=True)
     print("sterr     ", res.stderr)
     print("stdout   ", res.stdout)
