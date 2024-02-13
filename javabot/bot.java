@@ -5,12 +5,10 @@ import java.io.IOException;
 public class bot {
    // print arg to stdout
     public static void main(String[] args) throws IOException {
-        ObjectMapper objectMapper = new ObjectMapper();
 
-        Observable obs = objectMapper.readValue(args[args.length - 1], Observable.class);
+        Observable obs = Observable.fromJson(args[args.length - 1]);
 
-
-        ArrayList<Integer> validMoves = obs.getValidMoves();
+        ArrayList<Integer> validMoves = obs.getLegalActions();
         Random random = new Random();
         int randomIndex = random.nextInt(validMoves.size());
         int randomMove = validMoves.get(randomIndex);

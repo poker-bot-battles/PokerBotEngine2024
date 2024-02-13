@@ -1,38 +1,84 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.lang.reflect.Type;
 
-import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
 class PlayerInfo {
-  private String spent;
-  private String stack;
-  private String active;
+  private int spent;
+  private int stack;
+  private boolean active;
+
+  public int getSpent(){
+    return spent;
+  }
+
+  public int getStack(){
+    return stack;
+  }
+
+  public boolean getActive(){
+    return active;
+  }
+
+  public String toString(){
+    return "spent: " + spent + ", stack: " + stack + ", active: " + active;
+  }
 }
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Observable {
-  private String small_blind;
-  private String big_blind;
-  private List<String> my_hand;
-  private String my_index;
-  private List<String> board_cards;
-  private List<PlayerInfo> player_infos;
-  private String current_round;
-  private List<String> legal_actions;
+  public static Observable fromJson(String json) throws IOException{
+    return new ObjectMapper().readValue(json, Observable.class);
+  }
 
+  private int smallBlind;
+  private int bigBlind;
+  private List<String> myHand;
+  private int myIndex;
+  private List<String> boardCards;
+  private List<PlayerInfo> playerInfos;
+  private String currentRound;
+  private List<Integer> legalActions;
 
-  public ArrayList<Integer> getValidMoves(){
-    ArrayList<Integer> validMoves = new ArrayList<Integer>();
-    for (String action : legal_actions) {
-      validMoves.add(Integer.parseInt(action));
-    }
-    return validMoves;
+  public ArrayList<Integer> getLegalActions(){
+    return new ArrayList<Integer>(legalActions);
   }
 
   public ArrayList<String> getMyHand(){
-    return new ArrayList<String>(my_hand);
+    return new ArrayList<String>(myHand);
+  }
+
+  public ArrayList<String> getBoardCards(){
+    return new ArrayList<String>(boardCards);
+  }
+
+  public int getSmallBlind(){
+    return smallBlind;
+  }
+
+  public int getBigBlind(){
+    return bigBlind;
+  }
+
+  public int getMyIndex(){
+    return myIndex;
+  }
+
+  public String getCurrentRound(){
+    return currentRound;
+  }
+
+  public ArrayList<PlayerInfo> getPlayerInfos(){
+    return new ArrayList<PlayerInfo>(playerInfos);
+  }
+
+  public String toString(){
+    return "smallBlind: " + smallBlind + ", bigBlind: " + bigBlind + ", myHand: " + myHand + ", myIndex: " + myIndex + ", boardCards: " + boardCards + ", playerInfos: " + playerInfos + ", currentRound: " + currentRound + ", legalActions: " + legalActions;
   }
 }
