@@ -1,0 +1,2 @@
+eval7
+open-spiel
