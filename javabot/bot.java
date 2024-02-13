@@ -6,7 +6,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class bot {
    // print arg to stdout
     public static void main(String[] args) throws IOException {
+        
     try {
+        HelperFunctions.test();
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(args[args.length - 1]);
         System.out.println(act(jsonNode));

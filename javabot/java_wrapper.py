@@ -3,7 +3,7 @@ import subprocess
 import json
 class Bot:
   def __init__(self) -> None:
-     subprocess.run(["javac","-cp","javabot/libs/*", "javabot/bot.java"])
+     subprocess.run(["javac","-cp","./javabot:javabot/libs/*", "javabot/bot.java"])
   def get_name(self):
       return "Java Bot"
   
