@@ -1,28 +1,35 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.io.IOException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-public Checkmate  {
-   // print arg to stdout
+public class Checkmate {
+    // print arg to stdout
     public static void main(String[] args) throws IOException {
-    try {
-        ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode jsonNode = objectMapper.readTree(args[args.length - 1]);
-        System.out.println(act(jsonNode));
-    }
-    catch (Exception e) {
-        System.err.println(e);
-    }
+        Observable obs = Observable.fromJson(args[args.length - 1]);
+
+        int action = act(obs);
+        System.out.println(action);
     }
 
-    private static int act(JsonNode obs) {
-        JsonNode validMoves = obs.get("legal_actions");
-        System.err.println("hello");
-        Random random = new Random();
-        int randomIndex = random.nextInt(validMoves.size());
-        int randomMove = validMoves.get(randomIndex).asInt();
+    public static int act(Observation obs) {
+        if (noRaises(obs)) {
+            return obs.getMinRaise(); // attempt to steal the pot
+        }
+        if (obs.getCurrentRound() == 0) {
+            return 0; // fold preflop, steal later hand
+        } else {
+            return 1; // call and steal later round
+        }
+    }
 
-        return randomMove;
+    public static boolean noRaises(Observation obs) {
+        ActionInfo[] actionsThisRound = obs.getActionsThisRound();
+        int count = 0;
+        for (ActionInfo actionInfo : actionsThisRound) {
+            if (actionInfo.getAction() > 1) {
+                count++;
+            }
+        }
+        return count == 0;
     }
 }
