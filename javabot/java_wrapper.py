@@ -18,6 +18,8 @@ class Bot:
                'playerInfos': [p.__dict__ for p in obs.player_infos],
                'currentRound': obs.current_round,
                'legalActions': obs.legal_actions,
+               #     history: Tuple[Tuple[ActionInfo]] make sure its serializable
+               'history': [[a.__dict__ for a in r] for r in obs.history]
     }
     print("obsdict", json.dumps(obsdict))
     res = subprocess.run(["java", "-cp","./javabot:javabot/libs/*", "bot", json.dumps(obsdict)], capture_output=True, text=True)
