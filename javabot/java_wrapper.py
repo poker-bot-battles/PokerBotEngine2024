@@ -8,8 +8,6 @@ class Bot:
       return "Java Bot"
 
   def act(self, obs: Observation):
-    print("\n"*5)
-    print("obs", obs)
     obsdict = {'smallBlind': obs.small_blind,
                'bigBlind': obs.big_blind,
                'myHand': obs.my_hand,
@@ -21,8 +19,11 @@ class Bot:
                #     history: Tuple[Tuple[ActionInfo]] make sure its serializable
                'history': [[a.__dict__ for a in r] for r in obs.history]
     }
-    print("obsdict", json.dumps(obsdict))
     res = subprocess.run(["java", "-cp","./javabot:javabot/libs/*", "bot", json.dumps(obsdict)], capture_output=True, text=True)
     print("sterr     ", res.stderr)
     print("stdout   ", res.stdout)
     return int(res.stdout)
+
+  def __del__(self):
+      subprocess.run(["rm", "javabot/bot.class"])
+      subprocess.run(["rm", "javabot/Observable.class"])

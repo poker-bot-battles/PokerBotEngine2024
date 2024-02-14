@@ -102,8 +102,6 @@ public class Observable {
     return new ArrayList<PlayerInfo>(playerInfos);
   }
   
-  public 
-
   public String toString(){
     return "smallBlind: " + smallBlind + ", bigBlind: " + bigBlind + ", myHand: " + myHand + ", myIndex: " + myIndex + ", boardCards: " + boardCards + ", playerInfos: " + playerInfos + ", currentRound: " + currentRound + ", legalActions: " + legalActions;
   }
