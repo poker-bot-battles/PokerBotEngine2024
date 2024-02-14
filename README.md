@@ -1,5 +1,31 @@
+# Instalation
+
+## Requirements
+- python 3.8 or higher
+- pip
+- git
+
+## Steps
+1. Clone the repository
+```bash
+git clone https://github.com/poker-bot-battles/PokerBotEngine2024.git
+```
+2. Install the requirements
+```bash
+cd PokerBotEngine2024
+pip install eval7 open-spiel --no-cache-dir
+pip install poker-game-runner --no-cache-dir --no-deps
+```
+3. Run the engine
+```bash
+python main.py
+```
+
 # Welcome to the poker bot challenge
 
+- [Instalation](#instalation)
+  - [Requirements](#requirements)
+  - [Steps](#steps)
 - [Welcome to the poker bot challenge](#welcome-to-the-poker-bot-challenge)
   - [Introduction to the rules of poker](#introduction-to-the-rules-of-poker)
     - [In summery](#in-summery)
@@ -16,6 +42,7 @@
     - [Hand / private cards](#hand--private-cards)
     - [Poker hand / hand type](#poker-hand--hand-type)
     - [Board cards / Public cards / Community cards](#board-cards--public-cards--community-cards)
+    - [Range](#range)
 
 In this challenge you will write a poker playing bot to compete against the other participants.
 
