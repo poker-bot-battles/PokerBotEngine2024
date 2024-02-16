@@ -1,35 +1,27 @@
 import java.util.ArrayList;
-import java.util.Random;
 import java.io.IOException;
 
-public class Checkmate {
-    // print arg to stdout
-    public static void main(String[] args) throws IOException {
-        Observable obs = Observable.fromJson(args[args.length - 1]);
-
-        int action = act(obs);
-        System.out.println(action);
-    }
-
-    public static int act(Observation obs) {
-        if (noRaises(obs)) {
-            return obs.getMinRaise(); // attempt to steal the pot
-        }
-        if (obs.getCurrentRound() == 0) {
-            return 0; // fold preflop, steal later hand
-        } else {
-            return 1; // call and steal later round
-        }
-    }
-
-    public static boolean noRaises(Observation obs) {
-        ActionInfo[] actionsThisRound = obs.getActionsThisRound();
-        int count = 0;
-        for (ActionInfo actionInfo : actionsThisRound) {
-            if (actionInfo.getAction() > 1) {
-                count++;
+public class Checkmate  {
+    public static boolean noRaises(Observable obs) {
+        ArrayList<ActionInfo> actions = obs.getActionsThisRound();
+        for (ActionInfo action : actions) {
+            if (action.getAction() > 2) {
+                return false;
             }
         }
-        return count == 0;
+        return true;
     }
-}
+     public static void main(String[] args) throws IOException {
+
+         Observable obs = Observable.fromJson(args[args.length - 1]);
+
+         if(noRaises(obs)) {
+            System.out.println(obs.getMinRaise()); //attempt to steal the pot
+         } else if (obs.getCurrentRound() == 0) {
+            System.out.println(0); // Previous players have raised preflop, steal a later round
+         } else {
+            System.out.println(1); // Call and steal later
+         }
+
+     }
+ }

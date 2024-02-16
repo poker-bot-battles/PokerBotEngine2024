@@ -1,18 +1,16 @@
-import java.util.ArrayList;
-import java.util.Random;
 import java.io.IOException;
 
-public class bot {
-   // print arg to stdout
-    public static void main(String[] args) throws IOException {
+public class bot  {
+     public static void main(String[] args) throws IOException {
 
-        Observable obs = Observable.fromJson(args[args.length - 1]);
+         Observable obs = Observable.fromJson(args[args.length - 1]);
+         Range top50 = new Range("22+, A2s+, K2s+, Q2s+, J2s+, T5s+, 96s+, 86s+, 75s+, A2o+, K5o+, Q7o+, J8o+, T8o+");
 
-        ArrayList<Integer> validMoves = obs.getLegalActions();
-        Random random = new Random();
-        int randomIndex = random.nextInt(validMoves.size());
-        int randomMove = validMoves.get(randomIndex);
-        System.out.println(randomMove);
+         if (top50.isHandInRange(obs.getMyHand())) {
+             System.out.println(1);
+         } else {
+             System.out.println(0);
+         }
 
-    }
-}
+     }
+ }

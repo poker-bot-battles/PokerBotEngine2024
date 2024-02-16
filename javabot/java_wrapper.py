@@ -7,6 +7,8 @@ class Bot:
   def get_name(self):
       return "Java Bot"
 
+
+
   def act(self, obs: Observation):
     obsdict = {'smallBlind': obs.small_blind,
                'bigBlind': obs.big_blind,
@@ -16,7 +18,9 @@ class Bot:
                'playerInfos': [p.__dict__ for p in obs.player_infos],
                'currentRound': obs.current_round,
                'legalActions': obs.legal_actions,
-               'history': [[a.__dict__ for a in r] for r in obs.history]
+               'history': [[a.__dict__ for a in r] for r in obs.history],
+               'myHandType': str(obs.get_my_hand_type()),
+               'boardHandType': str(obs.get_board_hand_type()),
     }
     res = subprocess.run(["java", "-cp","./javabot:javabot/libs/*", "bot", json.dumps(obsdict)], capture_output=True, text=True)
     print("sterr     ", res.stderr)
