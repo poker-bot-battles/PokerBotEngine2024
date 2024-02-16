@@ -76,6 +76,9 @@ class ActionInfo {
   }
 }
 
+/**
+ * A class representing the state of the game
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Observable {
   public static Observable fromJson(String json) throws IOException{
@@ -99,65 +102,110 @@ public class Observable {
     return new ArrayList<Integer>(legalActions);
   }
 
+  /**
+   * @return The cards in the current players hand
+   */
   public ArrayList<String> getMyHand(){
     return new ArrayList<String>(myHand);
   }
 
+  /**
+   * @return The community cards on the board
+   */
   public ArrayList<String> getBoardCards(){
     return new ArrayList<String>(boardCards);
   }
 
+  /**
+   * @return The current small blind
+   */
   public int getSmallBlind(){
     return smallBlind;
   }
 
+  /**
+   * @return The current big blind
+   */
   public int getBigBlind(){
     return bigBlind;
   }
 
+  /**
+   * @return The history of all actions taken so far grouped by game round
+   */
   public ArrayList<List<ActionInfo>> getHistory(){
     return new ArrayList<>(history);
   }
 
+  /**
+   * @return The index of the current player out of all players in the game
+   */
   public int getMyIndex(){
     return myIndex;
   }
 
+  /**
+   * @return The current game round
+   */
   public int getCurrentRound(){
     return currentRound;
   }
 
-  public ArrayList<ActionInfo> getActionsThisRound(){
-    return getActionsInRound(currentRound);
-  }
-  public ArrayList<ActionInfo> getActionsInRound(int roundNum){
-    if (roundNum > 3 || roundNum < 0) {
-      return null;
-    }
-    return new ArrayList<ActionInfo>(history.get(roundNum));
-  }
-
+  /**
+   * The information about players in the game, as PlayerInfo objects
+   *<p>
+   * A PlayerInfo object contains the following fields:<p>
+   * <code>spent</code>: the amount the player has spent in this game<p>
+   * <code>stack</code>: the amount of money the player has left<p>
+   * <code>active</code>: whether the player is still active in the game<p>
+   *
+   * @return Current state of all players in the game
+   * @see PlayerInfo
+   */
   public ArrayList<PlayerInfo> getPlayerInfos(){
     return new ArrayList<PlayerInfo>(playerInfos);
   }
 
+  /**
+   * @return The type of the current players hand
+   */
   public HandType getMyHandType(){
     return PokerUtilities.handtypeStringToEnum(myHandType);
   }
 
+  /**
+   * @return The hand type of the community cards on the board
+   */
   public HandType getBoardHandType(){
     return PokerUtilities.handtypeStringToEnum(boardHandType);
   }
 
   /* ----- DERIVATIVES ----- */
+
+  /**
+   * information about the current player as PlayerInfo objects
+   *<p>
+   * A PlayerInfo object contains the following fields:<p>
+   * <code>spent</code>: the amount the player has spent in this game<p>
+   * <code>stack</code>: the amount of money the player has left<p>
+   * <code>active</code>: whether the player is still active in the game<p>
+   * @return PlayerInfo about the current player
+   * @see PlayerInfo
+   */
   public PlayerInfo getMyInfo(){
     return playerInfos.get(myIndex);
   }
 
+  /**
+   * @return The number of players in the game
+   */
   public int getPlayerCount(){
     return playerInfos.size();
   }
 
+  /**
+   * @return The number of players that are active in the hand (have not folded)
+   */
   public ArrayList<PlayerInfo> getActivePlayers(){
     ArrayList<PlayerInfo> activePlayers = new ArrayList<PlayerInfo>();
     for (PlayerInfo playerInfo : playerInfos){
@@ -168,6 +216,29 @@ public class Observable {
     return activePlayers;
   }
 
+  /**
+   * @return the ActionInfo's from the current round
+   * @see ActionInfo
+   */
+  public ArrayList<ActionInfo> getActionsThisRound(){
+    return getActionsInRound(currentRound);
+  }
+
+  /**
+   * @param roundNum the round number to get the actions from (0,1,2 or 3)
+   * @return the ActionInfo's from the specified round
+   * @see ActionInfo
+   */
+  public ArrayList<ActionInfo> getActionsInRound(int roundNum){
+    if (roundNum > 3 || roundNum < 0) {
+      return null;
+    }
+    return new ArrayList<ActionInfo>(history.get(roundNum));
+  }
+
+  /**
+   * @return The max amount of money spent from any player this game
+   */
   public int getMaxSpent(){
     int maxSpent = 0;
     for (PlayerInfo playerInfo : playerInfos){
@@ -176,10 +247,16 @@ public class Observable {
     return maxSpent;
   }
 
+  /**
+   * @return The amount of money needed to call the current bet
+   */
   public int getCallSize(){
     return getMaxSpent() - getMyInfo().getSpent();
   }
 
+  /**
+   * @return The amount of money in the pot
+   */
   public int getPotSize(){
     int potSize = 0;
     for (PlayerInfo playerInfo : playerInfos){
@@ -188,6 +265,9 @@ public class Observable {
     return potSize;
   }
 
+  /**
+   * @return true if the current player can raise, false otherwise
+   */
   public boolean canRaise(){
     for (Integer action : legalActions){
       if(action > 1){
@@ -197,34 +277,33 @@ public class Observable {
     return false;
   }
 
+  /**
+   * @return The minimum amount the current player can raise. Will return 1 (call) if the current player cannot raise
+   */
   public int getMinRaise(){
     if (!canRaise()){
       return 1;
     }
-    int minRaise = Integer.MAX_VALUE;
-    // TODO: Kan vi regne med at actions er sorterede? i så fald er legalActions.get(2) fint nok
-    for(int action : legalActions) {
-      if(action > 1){
-        minRaise = Math.min(minRaise, action);
-      }
-    }
+    int minRaise = legalActions.get(2);
     return minRaise;
   }
 
+  /**
+   * @return The maximum amount the current player can raise (all in). Will return 1 (call) if the current player cannot raise
+   */
   public int getMaxRaise() {
     if (!canRaise()){
       return 1;
     }
     int maxRaise = 0;
-    // TODO: Kan vi regne med at actions er sorterede? i så fald er legalActions.get(legalActions.size()-1) fint nok
-    for(int action : legalActions) {
-      if(action > 1){
-        maxRaise = Math.max(maxRaise, action);
-      }
-    }
+    legalActions.get(legalActions.size()-1);
     return maxRaise;
   }
 
+  /**
+   * @param fraction The relative size of the pot to raise
+   * @return The amount to raise to, to raise the specified fraction in relation pot
+   */
   public int getFractionPotRaise(float fraction) {
     if(!canRaise()) {
       return 1;

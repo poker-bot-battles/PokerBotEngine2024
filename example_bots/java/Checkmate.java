@@ -5,7 +5,7 @@ public class Checkmate  {
     public static boolean noRaises(Observable obs) {
         ArrayList<ActionInfo> actions = obs.getActionsThisRound();
         for (ActionInfo action : actions) {
-            if (action.getAction() > 2) {
+            if (action.getAction() > 1) {
                 return false;
             }
         }
