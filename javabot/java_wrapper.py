@@ -3,7 +3,10 @@ import subprocess
 import json
 class Bot:
   def __init__(self) -> None:
-     subprocess.run(["javac","-cp","./javabot:javabot/libs/*", "javabot/bot.java"])
+    subprocess.run(["javac","-cp","./javabot:javabot/libs/*", "javabot/PokerUtilities.java"])
+    subprocess.run(["javac","-cp","./javabot:javabot/libs/*", "javabot/Observable.java"])
+    subprocess.run(["javac","-cp","./javabot:javabot/libs/*", "javabot/bot.java"])
+
   def get_name(self):
       return "Java Bot"
 
@@ -22,6 +25,7 @@ class Bot:
                'myHandType': str(obs.get_my_hand_type()),
                'boardHandType': str(obs.get_board_hand_type()),
     }
+    # print(obsdict)
     res = subprocess.run(["java", "-cp","./javabot:javabot/libs/*", "bot", json.dumps(obsdict)], capture_output=True, text=True)
     # print("sterr     ", res.stderr)
     # print("stdout   ", res.stdout)
