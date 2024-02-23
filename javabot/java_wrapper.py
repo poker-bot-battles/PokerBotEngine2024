@@ -27,7 +27,8 @@ class Bot:
     }
     # print(obsdict)
     res = subprocess.run(["java", "-cp","./javabot:javabot/libs/*", "bot", json.dumps(obsdict)], capture_output=True, text=True)
-    # print("sterr     ", res.stderr)
+    if res.stderr != "":
+      print("sterr     ", res.stderr)
     # print("stdout   ", res.stdout)
     return int(res.stdout)
 
@@ -35,7 +36,6 @@ class Bot:
       subprocess.run(["rm", "javabot/bot.class"])
       subprocess.run(["rm", "javabot/Observable.class"])
       subprocess.run(["rm", "javabot/PokerUtilities.class"])
-      subprocess.run(["rm", "javabot/Range.class"])
       subprocess.run(["rm", "javabot/PlayerInfo.class"])
       subprocess.run(["rm", "javabot/HandType.class"])
       subprocess.run(["rm", "javabot/ActionInfo.class"])

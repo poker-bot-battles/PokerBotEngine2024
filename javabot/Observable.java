@@ -284,8 +284,12 @@ public class Observable {
     if (!canRaise()){
       return 1;
     }
-    int minRaise = legalActions.get(2);
-    return minRaise;
+    for (Integer action : legalActions){
+      if(action > 1){
+        return action;
+      }
+    }
+    return 1; // should never reach here
   }
 
   /**
@@ -295,9 +299,7 @@ public class Observable {
     if (!canRaise()){
       return 1;
     }
-    int maxRaise = 0;
-    legalActions.get(legalActions.size()-1);
-    return maxRaise;
+    return legalActions.get(legalActions.size()-1);
   }
 
   /**
