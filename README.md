@@ -30,12 +30,12 @@ python main.py
 
 # Welcome to the poker bot challenge
 
-- [Instalation](#instalation)
+- [Installation](#installation)
   - [Requirements](#requirements)
   - [Steps](#steps)
 - [Welcome to the poker bot challenge](#welcome-to-the-poker-bot-challenge)
   - [Introduction to the rules of poker](#introduction-to-the-rules-of-poker)
-    - [In summery](#in-summery)
+    - [In summary](#in-summary)
     - [Tournament setup](#tournament-setup)
     - [Special rules for this tournament](#special-rules-for-this-tournament)
   - [Setup](#setup)
@@ -58,7 +58,7 @@ In this challenge you will write a poker playing bot to compete against the othe
 The bots will be playing no-limit texas holdem poker.
 The detailed rules for this game can be found here: https://upswingpoker.com/poker-rules/texas-holdem-rules/
 
-### In summery
+### In ary
 
 Each player is delt 2 private cards face down.
 
