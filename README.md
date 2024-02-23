@@ -198,6 +198,6 @@ examples: `('3h', '5c', '2s')` or `('4h', 'Qd' 'Jh', 'Kd', 'Th')`
 
 A range is a way to group cards that you will play the same way. A range is represented by the class `Range`.
 
-The `Range` class constructor takes a rangeString. The rangeString can be generated from https://www.pokerhandrange.com/.
+The `Range` class constructor takes a rangeString. The rangeString can be generated from https://openpokertools.com/.
 
 To check if your current hand is in the range you have create use the `is_hand_in_range(current_hand)` method
