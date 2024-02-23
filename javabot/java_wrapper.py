@@ -3,24 +3,43 @@ import subprocess
 import json
 class Bot:
   def __init__(self) -> None:
-     subprocess.run(["javac","-cp","./javabot:javabot/libs/*", "javabot/bot.java"])
+    subprocess.run(["javac","-cp","./javabot:javabot/libs/*", "javabot/PokerUtilities.java"])
+    subprocess.run(["javac","-cp","./javabot:javabot/libs/*", "javabot/Observable.java"])
+    subprocess.run(["javac","-cp","./javabot:javabot/libs/*", "javabot/bot.java"])
+
   def get_name(self):
+      with open("javabot/bot.java") as f:
+          for line in f:
+              if "private static final String BOT_NAME" in line:
+                  return line.split('"')[1]
       return "Java Bot"
-  
+
+
+
   def act(self, obs: Observation):
-    print("\n"*5)
-    print("obs", obs)
-    obsdict = {'small_blind': obs.small_blind,
-               'big_blind': obs.big_blind, 
-               'my_hand': obs.my_hand, 
-               'my_index': obs.my_index,
-               'board_cards': obs.board_cards,
-               'player_infos': [p.__dict__ for p in obs.player_infos],
-               'current_round': obs.current_round,
-               'legal_actions': obs.legal_actions,
+    obsdict = {'smallBlind': obs.small_blind,
+               'bigBlind': obs.big_blind,
+               'myHand': obs.my_hand,
+               'myIndex': obs.my_index,
+               'boardCards': obs.board_cards,
+               'playerInfos': [p.__dict__ for p in obs.player_infos],
+               'currentRound': obs.current_round,
+               'legalActions': obs.legal_actions,
+               'history': [[a.__dict__ for a in r] for r in obs.history],
+               'myHandType': str(obs.get_my_hand_type()),
+               'boardHandType': str(obs.get_board_hand_type()),
     }
-    print("obsdict", json.dumps(obsdict))
+    # print(obsdict)
     res = subprocess.run(["java", "-cp","./javabot:javabot/libs/*", "bot", json.dumps(obsdict)], capture_output=True, text=True)
-    print("sterr     ", res.stderr)
-    print("stdout   ", res.stdout)
+    if res.stderr != "":
+      print("sterr     ", res.stderr)
+    # print("stdout   ", res.stdout)
     return int(res.stdout)
+
+  def __del__(self):
+      subprocess.run(["rm", "javabot/bot.class"])
+      subprocess.run(["rm", "javabot/Observable.class"])
+      subprocess.run(["rm", "javabot/PokerUtilities.class"])
+      subprocess.run(["rm", "javabot/PlayerInfo.class"])
+      subprocess.run(["rm", "javabot/HandType.class"])
+      subprocess.run(["rm", "javabot/ActionInfo.class"])

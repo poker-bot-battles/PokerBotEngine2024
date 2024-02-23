@@ -1,30 +1,22 @@
-import java.util.Random;
 import java.io.IOException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class bot {
-   // print arg to stdout
-    public static void main(String[] args) throws IOException {
-        
-    try {
-        HelperFunctions.test();
-        ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode jsonNode = objectMapper.readTree(args[args.length - 1]);
-        System.out.println(act(jsonNode));
-    }
-    catch (Exception e) {
-        System.err.println(e);
-    }
+public class bot  {
+    private static final String BOT_NAME = "Your bot name here!";
+     public static void main(String[] args) throws IOException {
+
+        // DO NOT REMOVE
+        Observable obs = Observable.fromJson(args[args.length - 1]);
+
+        Range top50 = new Range("22+, A2s+, K2s+, Q2s+, J2s+, T5s+, 96s+, 86s+, 75s+, A2o+, K5o+, Q7o+, J8o+, T8o+");
+        HandType type = obs.getMyHandType();
+
+        if (type.getValue() >= HandType.PAIR.getValue()) {
+             System.out.println(obs.getMaxRaise());
+        } else if (top50.isHandInRange(obs.getMyHand())) {
+            System.out.println(1);
+        } else {
+            System.out.println(0);
+        }
     }
 
-    private static int act(JsonNode obs) {
-        JsonNode validMoves = obs.get("legal_actions"); 
-        System.err.println("hello");
-        Random random = new Random();
-        int randomIndex = random.nextInt(validMoves.size());
-        int randomMove = validMoves.get(randomIndex).asInt();
-
-        return randomMove;
-    }
-}
+ }
