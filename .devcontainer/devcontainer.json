@@ -1,0 +1,15 @@
+{
+    "image":"mcr.microsoft.com/devcontainers/universal:2",
+    "postCreateCommand": "pip3 install -r req1.txt; pip3 install -r req2.txt --no-deps",
+    // Configure tool-specific properties.
+    "customizations": {
+    // Configure properties specific to VS Code.
+        "vscode": {
+        // Add the IDs of extensions you want installed when the container is created.
+            "extensions": [
+                "ms-python.python",
+                "vscjava.vscode-java-pack"
+            ]
+        }
+    }
+}

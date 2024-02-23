@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 public class bot  {
-    private static final String BOT_NAME = "Your bot name here!";
+    public static final String BOT_NAME = "FIRST YEAR STUDENT HELLO BOT";
      public static void main(String[] args) throws IOException {
 
         // DO NOT REMOVE
@@ -18,5 +18,4 @@ public class bot  {
             System.out.println(0);
         }
     }
-
  }
