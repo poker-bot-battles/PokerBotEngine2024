@@ -8,7 +8,10 @@ class Bot:
     subprocess.run(["javac","-cp","./javabot:javabot/libs/*", "javabot/bot.java"])
 
   def get_name(self):
-      return "Java Bot"
+      with open("javabot/bot.java") as f:
+          for line in f:
+              if "private static final String BOT_NAME" in line:
+                  return line.split('"')[1]
 
 
 

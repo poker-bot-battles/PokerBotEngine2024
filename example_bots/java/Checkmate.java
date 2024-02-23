@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.io.IOException;
 
 public class Checkmate  {
+    private static final String BOT_NAME = "Checkmate";
     public static boolean noRaises(Observable obs) {
         ArrayList<ActionInfo> actions = obs.getActionsThisRound();
         for (ActionInfo action : actions) {

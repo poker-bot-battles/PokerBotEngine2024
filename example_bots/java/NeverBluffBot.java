@@ -7,6 +7,7 @@ import java.io.IOException;
  * otherwise it will call
  */
 public class NeverBluffBot  {
+    private static final String BOT_NAME = "Never bluff bot";
      public static void main(String[] args) throws IOException {
         // DO NOT REMOVE
         Observable obs = Observable.fromJson(args[args.length - 1]);

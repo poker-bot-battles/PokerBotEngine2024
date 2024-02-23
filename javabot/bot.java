@@ -1,7 +1,9 @@
 import java.io.IOException;
 
 public class bot  {
+    private static final String BOT_NAME = "Your bot name here!";
      public static void main(String[] args) throws IOException {
+
         // DO NOT REMOVE
         Observable obs = Observable.fromJson(args[args.length - 1]);
 

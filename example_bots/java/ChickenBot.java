@@ -8,6 +8,7 @@ import java.io.IOException;
  * If that is the case, it chickens out and folds!
  */
 public class ChickenBot {
+    private static final String BOT_NAME = "Chicken bot";
 
      public static void main(String[] args) throws IOException {
         // DO NOT REMOVE

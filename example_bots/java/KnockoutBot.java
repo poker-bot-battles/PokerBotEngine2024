@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * knock out the player with the lowest stack.
  */
 public class KnockoutBot {
+    private static final String BOT_NAME = "Knockout bot";
  public static void main(String[] args) throws IOException {
         // DO NOT REMOVE
         Observable obs = Observable.fromJson(args[args.length - 1]);

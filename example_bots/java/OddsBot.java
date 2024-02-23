@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class OddsBot  {
+  private static final String BOT_NAME = "Odds bot";
 
   private static Range top20 = new Range("55+, A3s+, K7s+, Q8s+, J9s+, T9s, A9o+, KTo+, QJo");
   private static Range top16 = new Range("66+, A5s+, K9s+, Q9s+, JTs, ATo+, KJo+, QJo");

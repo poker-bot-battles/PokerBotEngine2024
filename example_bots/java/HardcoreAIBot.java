@@ -1,6 +1,7 @@
 import java.io.IOException;
 
 public class HardcoreAIBot  {
+    private static final String BOT_NAME = "Hardcore AI Bot";
      public static void main(String[] args) throws IOException {
         // DO NOT REMOVE
         Observable obs = Observable.fromJson(args[args.length - 1]);
