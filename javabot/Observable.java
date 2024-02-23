@@ -67,7 +67,7 @@ class ActionInfo {
   public String toString(){
     String playerString = "Player " + player + ": ";
     if(action == 0){
-      return(playerString+ "Fold");
+      return(playerString + "Fold");
     }
     if(action == 1){
       return (playerString + "Call");

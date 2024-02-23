@@ -8,7 +8,7 @@ enum HandType {
   FLUSH (6),
   FULL_HOUSE (7),
   FOUR_OF_A_KIND (8),
-  STRAIGHT_FLUSH (9 );
+  STRAIGHT_FLUSH (9);
 
   private final int value;
   HandType(int value){
@@ -26,23 +26,23 @@ public class PokerUtilities {
   public static HandType handtypeStringToEnum(String handtypeString) {
     String handtypeStringLower = handtypeString.toLowerCase();
     switch (handtypeStringLower) {
-      case "highcard":
+      case "1":
         return HandType.HIGH_CARD;
-      case "pair":
+      case "2":
         return HandType.PAIR;
-      case "twopair":
+      case "3":
         return HandType.TWO_PAIR;
-      case "trips":
+      case "4":
         return HandType.THREE_OF_A_KIND;
-      case "straight":
+      case "5":
         return HandType.STRAIGHT;
-      case "flush":
+      case "6":
         return HandType.FLUSH;
-      case "fullhouse":
+      case "7":
         return HandType.FULL_HOUSE;
-      case "quads":
+      case "8":
         return HandType.FOUR_OF_A_KIND;
-      case "straightflush":
+      case "9":
         return HandType.STRAIGHT_FLUSH;
       default:
         return HandType.ERROR;
