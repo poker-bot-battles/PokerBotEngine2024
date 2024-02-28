@@ -1,0 +1,11 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run table",
+            "type": "node",
+            "request": "launch",
+            "preLaunchTask": "runtable"
+        }
+    ],
+}

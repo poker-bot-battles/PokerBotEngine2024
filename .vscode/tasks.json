@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "runtable",
+        "command": "python3", // Could be any other shell command
+        "args": ["main.py"],
+        "type": "shell"
+      }
+    ]
+  }
