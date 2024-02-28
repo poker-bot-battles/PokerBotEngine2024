@@ -8,7 +8,10 @@
         // Add the IDs of extensions you want installed when the container is created.
             "extensions": [
                 "ms-python.python",
-                "vscjava.vscode-java-pack"
+                "VisualStudioExptTeam.vscodeintellicode",
+                "VisualStudioExptTeam.intellicode-api-usage-examples",
+                "redhat.java",
+                "vscjava.vscode-java-dependency"
             ]
         }
     }
