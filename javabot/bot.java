@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 public class bot  {
-    public static final String BOT_NAME = "FIRST YEAR STUDENT HELLO BOT";
+    public static final String BOT_NAME = "Your Name Here!";
 
      public static void main(String[] args) throws IOException {
 
