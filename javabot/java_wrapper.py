@@ -1,7 +1,7 @@
 from poker_game_runner.state import Observation
 import subprocess
 import json
-import pdb
+
 class Bot:
 
   def __init__(self) -> None:
