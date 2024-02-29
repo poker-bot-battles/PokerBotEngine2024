@@ -1,0 +1,10 @@
+{
+  "java.server.launchMode": "Standard",
+  "java.project.sourcePaths": ["javabot", "example_bots/java"],
+  "java.project.referencedLibraries": [
+    "lib/**/*.jar",
+    "javabot/libs/jackson-annotations-2.15.2.jar",
+    "javabot/libs/jackson-core-2.15.2.jar",
+    "javabot/libs/jackson-databind-2.9.9.3.jar"
+  ]
+}
