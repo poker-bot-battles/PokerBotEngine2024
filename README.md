@@ -82,45 +82,6 @@ If a bot has less than 1 big blind at the end of a hand they are taken out of th
 
 There is a raise count limitation of 5. This means that the number of raises in one betting round is limited to 5.
 
-## Setup
-
-We recommend you use replit.com to develop your bot. It is an online IDE which makes the environment setup painless.
-
-If you want to use something else, please be aware that we use some libraries that are linux only and you will have to copy your code to replit for submission.
-
-Guide:
-
-- open link https://replit.com/@frederikblund/pokerdevenv
-- press `fork repl`
-- log in with google or other
-- Press `Run` at the top.
-- Wait for the necessary packages to be installed (1-2 min)
-- Share your repl with 'nctbk' by clicking the `invite` button in the top right. (ignore the "no results" warning when searching for 'nctbk')
-- You are now ready to code.
-
-## Introduction to the development environment
-
-### `main.py`
-
-This file will be run when the green run button is pressed.
-
-In this file you can change which bots will play in the tournament by adding/removing bots from the bots list.
-
-There are 2 ways to test your bot:
-
-- `run_table(bots)` runs 1 single tournament to the end, and outputs details to the console. This can be used for debugging and general development.
-- `run_benchmark(bots, n)` runs n tournaments and outputs win count for each bot. This is used for getting an indication of the overall strength of the bots compared to each other.
-
-### `my_bot_dev.py` and `my_bot_master.py`
-
-these files are where you will write you own bot.
-
-`my_bot_master.py` is the file that will be downloaded and run the in the tournaments, so make sure the code in this file works!
-
-`my_bot_dev.py` can be use for general development and experimentation.
-
-You can add as many files as you want with different versions of your bot (or other participant’s bots) which can be useful to see if your improvements actually help
-
 ### `example_bots` folder
 
 In this folder there are examples of bots to get inspiration from.
