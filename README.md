@@ -4,35 +4,6 @@ Don't know where to begin? You can try either:
 * Looking at our example bots for either java or python in the `example_bots` folder
 * Checking out the [TL;DR of our documentation](https://pokerbot.dk/docs)
 * Looking at the full (and very extensive) [documentation](https://poker-game-runner.readthedocs.io/en/latest/poker_game_runner.html)
-# Installation
-
-## Requirements
-
-- python 3.8 or higher
-- pip
-- git
-
-## Steps
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/poker-bot-battles/PokerBotEngine2024.git
-```
-
-2. Install the requirements
-
-```bash
-cd PokerBotEngine2024
-pip install eval7 open-spiel --no-cache-dir
-pip install poker-game-runner --no-cache-dir --no-deps
-```
-
-3. Run the engine
-
-```bash
-python main.py
-```
 
 # Welcome to the poker bot challenge
 
@@ -64,7 +35,7 @@ In this challenge you will write a poker playing bot to compete against the othe
 The bots will be playing no-limit texas holdem poker.
 The detailed rules for this game can be found here: https://upswingpoker.com/poker-rules/texas-holdem-rules/
 
-### In ary
+### In summary
 
 Each player is delt 2 private cards face down.
 
