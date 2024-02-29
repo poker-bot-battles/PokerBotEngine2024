@@ -1,3 +1,9 @@
+# Getting started
+Don't know where to begin? You can try either:
+
+* Looking at our example bots for either java or python in the `example_bots` folder
+* Checking out the [TL;DR of our documentation](https://pokerbot.dk/docs)
+* Looking at the full (and very extensive) [documentation](https://poker-game-runner.readthedocs.io/en/latest/poker_game_runner.html)
 # Installation
 
 ## Requirements
