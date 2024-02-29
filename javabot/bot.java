@@ -6,5 +6,4 @@ public class bot  {
         // Your code here
         return 0;
     }
-
  }

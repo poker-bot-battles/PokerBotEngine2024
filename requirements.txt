@@ -1,3 +1,4 @@
+cython==3.0.8
 eval7==0.1.9
 open-spiel==1.0.2   
 poker-game-runner==0.1.15
