@@ -2,28 +2,28 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Run table (Java)",
+      "name": "Run single game (Java)",
       "type": "node",
       "request": "launch",
       "preLaunchTask": "runtablejava",
       "program": "${workspaceFolder}/main.py"
     },
     {
-      "name": "Run benchmark (Java)",
+      "name": "Run 100 games (Java)",
       "type": "node",
       "request": "launch",
       "preLaunchTask": "runbenchmarkjava",
       "program": "${workspaceFolder}/main.py"
     },
     {
-      "name": "Run table (Python)",
+      "name": "Run single game (Python)",
       "type": "node",
       "request": "launch",
       "preLaunchTask": "runtablepython",
       "program": "${workspaceFolder}/main.py"
     },
     {
-      "name": "Run benchmark (Python)",
+      "name": "Run 100 games (Python)",
       "type": "node",
       "request": "launch",
       "preLaunchTask": "runbenchmarkpython",
