@@ -16,7 +16,6 @@ public class SuperBot {
         res = bot.act(obs);
         System.out.println(res);
       } catch(Exception e) {
-        res = 0;
         System.out.println(e);
       }
       System.out.flush();
