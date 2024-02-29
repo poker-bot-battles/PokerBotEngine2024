@@ -15,7 +15,7 @@ class Bot:
   def get_name(self):
       with open("javabot/bot.java") as f:
           for line in f:
-              if "private static final String BOT_NAME" in line:
+              if "public static final String BOT_NAME" in line:
                   return line.split('"')[1]
       return "Java Bot"
 
@@ -42,7 +42,7 @@ class Bot:
       int_res = int(res)
       return int(int_res)
     except:
-      print("Java bot caused an exception")
+      print("Java bot ("+self.get_name()+") caused an exception")
       print("Error:", res)
       return 0
 

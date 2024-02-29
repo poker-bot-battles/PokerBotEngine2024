@@ -1,8 +1,7 @@
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class OddsBot  {
-  private static final String BOT_NAME = "Odds bot";
+  public static final String BOT_NAME = "Odds bot";
 
   private static Range top20 = new Range("55+, A3s+, K7s+, Q8s+, J9s+, T9s, A9o+, KTo+, QJo");
   private static Range top16 = new Range("66+, A5s+, K9s+, Q9s+, JTs, ATo+, KJo+, QJo");
@@ -28,19 +27,19 @@ public class OddsBot  {
     return myHandType.getValue() >= HandType.PAIR.getValue() || isCardRankInHand('A', obs.getMyHand());
   }
 
-  public static void doPreflopOpen(Observable obs) {
+  public static int doPreflopOpen(Observable obs) {
     if (top20.isHandInRange(obs.getMyHand())) {
-      System.out.println(obs.getFractionPotRaise(1));
+      return obs.getFractionPotRaise(1);
     } else {
-      System.out.println(1);
+      return 1;
     }
   }
 
-  public static void doPreflopResponse(Observable obs) {
+  public static int doPreflopResponse(Observable obs) {
     float callOdds = (float) obs.getCallSize() / obs.getPotSize();
     Range newRange = top6;
     if (callOdds < 0.1){
-      System.out.println(1);
+      return 1;
     }
     else if (callOdds < 0.3) {
       newRange = top16;
@@ -50,65 +49,63 @@ public class OddsBot  {
     }
     // If callOdds > 0.6, use top6
     if (newRange.isHandInRange(obs.getMyHand())) {
-      System.out.println(1);
+      return 1;
     } else {
-      System.out.println(0);
+      return 0;
     }
   }
 
-  public static void doPreflop(Observable obs) {
+  public static int doPreflop(Observable obs) {
     if (noRaises(obs)){
-      doPreflopOpen(obs);
+      return doPreflopOpen(obs);
     } else {
-      doPreflopResponse(obs);
+      return doPreflopResponse(obs);
     }
   }
 
-  public static void doPostFlopOpen(Observable obs) {
+  public static int doPostFlopOpen(Observable obs) {
     if (isHandAceOrBetter(obs)) {
-      System.out.println(obs.getFractionPotRaise(1));
+      return obs.getFractionPotRaise(1);
     } else {
-      System.out.println(0);
+      return 0;
     }
   }
 
-  public static void doPostFlopResponse(Observable obs) {
+  public static int doPostFlopResponse(Observable obs) {
     float callOdds = (float) obs.getCallSize() / obs.getPotSize();
     HandType myHandType = obs.getMyHandType();
     if (callOdds < 0.1) {
-      System.out.println(1);
+      return 1;
     } else if(callOdds < 0.3) {
       if (myHandType.getValue() >= HandType.PAIR.getValue() && myHandType.getValue() > obs.getBoardHandType().getValue()) {
-        System.out.println(1);
+        return 1;
       }
     } else if(callOdds < 0.6) {
       if (myHandType.getValue() >= HandType.PAIR.getValue() && myHandType.getValue() > obs.getBoardHandType().getValue()+1) {
-        System.out.println(1);
+        return 1;
       }
     } else {
       if (myHandType.getValue() >= HandType.TWO_PAIR.getValue() && myHandType.getValue() > obs.getBoardHandType().getValue()+1) {
-        System.out.println(1);
+        return 1;
       }
     }
-    System.out.println(0);
+    return 0;
   }
 
-  public static void doPostflop(Observable obs) {
+  public static int doPostflop(Observable obs) {
     if(obs.getCallSize() == 0) {
-      doPostFlopOpen(obs);
+      return doPostFlopOpen(obs);
     } else {
-      doPostFlopResponse(obs);
+      return doPostFlopResponse(obs);
     }
   }
-     public static void main(String[] args) throws IOException {
+  public static int act(Observable obs) throws Exception {
 
-         Observable obs = Observable.fromJson(args[args.length - 1]);
+    if (obs.getCurrentRound() == 0) {
+      return doPreflop(obs);
+    } else {
+      return doPostflop(obs);
+    }
 
-         if (obs.getCurrentRound() == 0) {
-             doPreflop(obs);
-         } else {
-             doPostflop(obs);
-         }
-
-     }
- }
+  }
+}

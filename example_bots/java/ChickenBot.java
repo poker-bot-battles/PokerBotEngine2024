@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 /**
  * A bot that always chickens out
  *
@@ -8,17 +6,14 @@ import java.io.IOException;
  * If that is the case, it chickens out and folds!
  */
 public class ChickenBot {
-    private static final String BOT_NAME = "Chicken bot";
+    public static final String BOT_NAME = "Chicken bot";
 
-     public static void main(String[] args) throws IOException {
-        // DO NOT REMOVE
-        Observable obs = Observable.fromJson(args[args.length - 1]);
-
+    public static int act(Observable obs) throws Exception {
         int amountToCall = obs.getCallSize();
         if (amountToCall > 0) {
-            System.out.println(0);
+            return 0;
         } else {
-            System.out.println(1);
+            return 1;
         }
     }
 }
