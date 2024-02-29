@@ -1,13 +1,1 @@
-{
-  "small_blind": 10,
-  "big_blind": 20,
-  "my_hand": ["Td", "9s"],
-  "my_index": 1,
-  "board_cards": ["3c", "8d", "7h"],
-  "player_infos": [
-    { "spent": 92, "stack": 8, "active": true },
-    { "spent": 92, "stack": 8, "active": true }
-  ],
-  "current_round": 1,
-  "legal_actions": [1, 100]
-}
+{"smallBlind": 10, "bigBlind": 20, "myHand": ["Ad", "Td"], "myIndex": 0, "boardCards": [], "playerInfos": [{"spent": 10, "stack": 90, "active": true}, {"spent": 20, "stack": 80, "active": true}], "currentRound": 0, "legalActions": [0, 1, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100], "history": [[], [], [], []], "myHandType": "1", "boardHandType": "1"}

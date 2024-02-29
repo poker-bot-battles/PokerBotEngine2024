@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -7,10 +6,9 @@ import java.util.ArrayList;
  * knock out the player with the lowest stack.
  */
 public class KnockoutBot {
-    private static final String BOT_NAME = "Knockout bot";
- public static void main(String[] args) throws IOException {
-        // DO NOT REMOVE
-        Observable obs = Observable.fromJson(args[args.length - 1]);
+    public static final String BOT_NAME = "Knockout bot";
+
+    public static int act(Observable obs) throws Exception {
         ArrayList<PlayerInfo> players = obs.getActivePlayers();
 
         int lowestRaise = Integer.MAX_VALUE;
@@ -24,9 +22,9 @@ public class KnockoutBot {
 
         // if the lowest stack is greater than the max raise, then raise the max raise
         if (lowestRaise > maxRaise) {
-            System.out.println(maxRaise);
+            return maxRaise;
         } else {
-            System.out.println(lowestRaise);
+            return lowestRaise;
         }
 
     }

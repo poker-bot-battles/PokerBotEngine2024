@@ -68,7 +68,7 @@ public class Range {
       }
     }
     ArrayList<String> sortedHandCards = new ArrayList<String>(handCards);
-    sortedHandCards.sort((a,b) -> (Character.compare(b.charAt(0), a.charAt(0))));
+    sortedHandCards.sort((a,b) -> (RANKS.indexOf(b.charAt(0)) - RANKS.indexOf(a.charAt(0))));
     String highCard = sortedHandCards.get(0);
     String lowCard = sortedHandCards.get(1);
     String handString = highCard.charAt(0) +""+ lowCard.charAt(0);

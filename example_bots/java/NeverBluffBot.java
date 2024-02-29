@@ -1,5 +1,3 @@
-import java.io.IOException;
-
 /**
  * A bot that never bluffs
  *
@@ -7,18 +5,16 @@ import java.io.IOException;
  * otherwise it will call
  */
 public class NeverBluffBot  {
-    private static final String BOT_NAME = "Never bluff bot";
-     public static void main(String[] args) throws IOException {
-        // DO NOT REMOVE
-        Observable obs = Observable.fromJson(args[args.length - 1]);
+    public static final String BOT_NAME = "Never bluff bot";
 
+    public static int act(Observable obs) throws Exception {
         HandType myHand = obs.getMyHandType();
         HandType boardHand = obs.getBoardHandType();
 
         if(myHand.getValue() > boardHand.getValue()){
-            System.out.println(obs.getMinRaise());
+            return obs.getMinRaise();
         } else {
-            System.out.println(1);
+            return 1;
         }
     }
 

@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -204,7 +203,7 @@ public class Observable {
   }
 
   /**
-   * @return The number of players that are active in the hand (have not folded)
+   * @return The players that are active in the hand (have not folded)
    */
   public ArrayList<PlayerInfo> getActivePlayers(){
     ArrayList<PlayerInfo> activePlayers = new ArrayList<PlayerInfo>();
