@@ -7,5 +7,5 @@ bots = [java_wrapper, odds_bot, panic_bot]
 
 run_table(bots)
 
-# run_benchmark(bots, 10)
+# run_benchmark(bots, 100)
 

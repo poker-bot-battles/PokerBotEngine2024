@@ -1,13 +1,9 @@
-import java.io.IOException;
-
 public class bot  {
-    public static final String BOT_NAME = "Your Name Here!";
+    public static final String BOT_NAME = "Your bot name here!";
 
-     public static void main(String[] args) throws IOException {
+        public static int act(Observable obs) throws Exception {
 
-        // DO NOT REMOVE
-        Observable obs = Observable.fromJson(args[args.length - 1]);
-
-        System.out.println(obs.getMaxRaise());
+        // Your code here
+        return 0;
     }
  }
