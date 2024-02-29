@@ -37,34 +37,34 @@ The detailed rules for this game can be found here: https://upswingpoker.com/pok
 
 ### In summary
 
-Each player is delt 2 private cards face down.
+Each player is dealt 2 private cards face down.
 
-Over the course of the game 5 public community cards are delt (called board cards).
+Over the course of the game 5 public community cards are dealt (called board cards).
 
 To win the player must either get every other player to fold (given up on their hand) or have the best poker hand at the end of the game.
 
-The poker hand is made up of the 5 best cards out of the 2 private cards the player is delt and the 5 board cards shared with all players.
+The poker hand is made up of the 5 best cards out of the 2 private cards the player is dealt and the 5 board cards shared with all players.
 
 The poker hand rankings are described here: https://www.cardplayer.com/rules-of-poker/hand-rankings
 
 The game takes place over 4 betting rounds as described below:
 
 - the 2 players next to the dealer input the small blind and big blind to the pot.
-- each player is delt 2 cards
+- each player is dealt 2 cards
   - PreFlop (betting round 0)
     - players can fold, call, or raise
     - this continues until all players have either folded or called the last raise.
     - if 2 or more players have not folded, play continues to the next betting round
   - Flop (betting round 1)
-    - 3 board cards are delt
+    - 3 board cards are dealt
     - if no bet has been made the payers can check (bet nothing)
     - this continues until all players have either folded or called the last raise.
     - if 2 or more players have not folded, play continues to the next betting round
   - Turn (betting round 2)
-    - 1 board cards is delt to a total of 4
+    - 1 board cards is dealt to a total of 4
     - play continues as described in the flop section
   - River (betting round 3)
-    - 1 board cards is delt to a total of 5
+    - 1 board cards is dealt to a total of 5
     - play continues as described in the flop section
     - if 2 or more players have not folded, all players reveal their hands, and the best hand wins the pot
 
@@ -116,7 +116,7 @@ examples: `'As'` (ace of spades), `'6d'` (six of diamonds), `'Tc'` (ten of clubs
 
 ### Hand / private cards
 
-A hand is the 2 private cards each player is delt. the hand is represented by a tuple of card strings
+A hand is the 2 private cards each player is dealt. the hand is represented by a tuple of card strings
 
 examples: `('As', 'Ah')`
 
@@ -128,7 +128,7 @@ example `HandType.FLUSH`, `HandType.PAIR`
 
 ### Board cards / Public cards / Community cards
 
-the Board cards are the shared cards delt on the board that any player can use to create their best poker hand. the board cards are represented by a tuple of card strings
+the Board cards are the shared cards dealt on the board that any player can use to create their best poker hand. the board cards are represented by a tuple of card strings
 
 examples: `('3h', '5c', '2s')` or `('4h', 'Qd' 'Jh', 'Kd', 'Th')`
 
