@@ -203,7 +203,7 @@ public class Observable {
   }
 
   /**
-   * @return The number of players that are active in the hand (have not folded)
+   * @return The players that are active in the hand (have not folded)
    */
   public ArrayList<PlayerInfo> getActivePlayers(){
     ArrayList<PlayerInfo> activePlayers = new ArrayList<PlayerInfo>();
