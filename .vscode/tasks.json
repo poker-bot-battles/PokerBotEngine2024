@@ -1,11 +1,29 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-      {
-        "label": "runtable",
-        "command": "python3", // Could be any other shell command
-        "args": ["main.py"],
-        "type": "shell"
-      }
-    ]
-  }
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "runtablejava",
+      "command": "python3", // Could be any other shell command
+      "args": ["main.py", "java", "table"],
+      "type": "shell"
+    },
+    {
+      "label": "runbenchmarkjava",
+      "command": "python3", // Could be any other shell command
+      "args": ["main.py", "java", "benchmark", "100"],
+      "type": "shell"
+    },
+    {
+      "label": "runtablepython",
+      "command": "python3", // Could be any other shell command
+      "args": ["main.py", "python", "table"],
+      "type": "shell"
+    },
+    {
+      "label": "runbenchmarkpython",
+      "command": "python3", // Could be any other shell command
+      "args": ["main.py", "python", "benchmark", "100"],
+      "type": "shell"
+    }
+  ]
+}

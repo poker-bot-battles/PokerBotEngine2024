@@ -1,11 +1,29 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Run table",
-            "type": "node",
-            "request": "launch",
-            "preLaunchTask": "runtable"
-        }
-    ],
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run table (Java)",
+      "type": "node",
+      "request": "launch",
+      "preLaunchTask": "runtablejava"
+    },
+    {
+      "name": "Run benchmark (Java)",
+      "type": "node",
+      "request": "launch",
+      "preLaunchTask": "runbenchmarkjava"
+    },
+    {
+      "name": "Run table (Python)",
+      "type": "node",
+      "request": "launch",
+      "preLaunchTask": "runtablepython"
+    },
+    {
+      "name": "Run benchmark (Python)",
+      "type": "node",
+      "request": "launch",
+      "preLaunchTask": "runbenchmarkpython"
+    }
+  ]
 }
