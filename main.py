@@ -1,10 +1,9 @@
 import sys
+from example_bots.python import odds_bot, random_bot, never_bluff_bot
 from test import run_benchmark, run_table
-from poker_game_runner.bots import randombot
-from example_bots import panic_bot, odds_bot, checkmate, position_bot
 import my_bot
 import javabot.java_wrapper as java_wrapper
-bots = [odds_bot, panic_bot]
+bots = [odds_bot, random_bot, never_bluff_bot]
 
 lang, type = sys.argv[1], sys.argv[2]
 

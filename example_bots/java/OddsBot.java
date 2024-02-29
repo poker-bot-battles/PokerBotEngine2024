@@ -1,5 +1,10 @@
 import java.util.ArrayList;
-
+/**
+ *   This bot calculates the odds it is given to call and uses this to determine how good it's hand needs to be to call.
+ *   If nobody has raised before, this bot uses some simple logic to determine if it should raise or not.
+ *
+ *   "open" == first raise in round
+ */
 public class OddsBot  {
   public static final String BOT_NAME = "Odds bot";
 
