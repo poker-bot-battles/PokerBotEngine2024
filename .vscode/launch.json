@@ -5,25 +5,29 @@
       "name": "Run table (Java)",
       "type": "node",
       "request": "launch",
-      "preLaunchTask": "runtablejava"
+      "preLaunchTask": "runtablejava",
+      "program": "${workspaceFolder}/main.py"
     },
     {
       "name": "Run benchmark (Java)",
       "type": "node",
       "request": "launch",
-      "preLaunchTask": "runbenchmarkjava"
+      "preLaunchTask": "runbenchmarkjava",
+      "program": "${workspaceFolder}/main.py"
     },
     {
       "name": "Run table (Python)",
       "type": "node",
       "request": "launch",
-      "preLaunchTask": "runtablepython"
+      "preLaunchTask": "runtablepython",
+      "program": "${workspaceFolder}/main.py"
     },
     {
       "name": "Run benchmark (Python)",
       "type": "node",
       "request": "launch",
-      "preLaunchTask": "runbenchmarkpython"
+      "preLaunchTask": "runbenchmarkpython",
+      "program": "${workspaceFolder}/main.py"
     }
   ]
 }
