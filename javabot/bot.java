@@ -4,6 +4,6 @@ public class bot  {
     public static int act(Observable obs) throws Exception {
 
         // Your code here
-        return 0;
+        return obs.getMaxRaise(); // All in
     }
  }
