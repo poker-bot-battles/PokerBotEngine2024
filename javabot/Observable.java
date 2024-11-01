@@ -151,6 +151,13 @@ public class Observable {
   }
 
   /**
+   * @return Player info
+   */
+  public ArrayList<PlayerInfo> getMyPlayerInfo() {
+    return new ArrayList<>(playerInfos);
+  }
+
+  /**
    * The information about players in the game, as PlayerInfo objects
    *<p>
    * A PlayerInfo object contains the following fields:<p>
