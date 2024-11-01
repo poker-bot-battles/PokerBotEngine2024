@@ -151,7 +151,15 @@ public class Observable {
   }
 
   /**
-   * @return Player info
+   * @return The player info of the current player
+   *<p>
+   * A PlayerInfo object contains the following fields:<p>
+   * <code>spent</code>: the amount the player has spent in this game<p>
+   * <code>stack</code>: the amount of money the player has left<p>
+   * <code>active</code>: whether the player is still active in the game<p>
+   *
+   * @return Current state of all players in the game
+   * @see PlayerInfo
    */
   public ArrayList<PlayerInfo> getMyPlayerInfo() {
     return new ArrayList<>(playerInfos);
